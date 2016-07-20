@@ -16,5 +16,12 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     # 配置一个连接在池中最小生存的时间，单位是毫秒
     minEvictableIdleTimeMillis: 300000
+  cache:
+    ehcache:
+      config: config/ehcache/ehcache.xml
+  freemarker:
+    charset: UTF-8
+    cache: true
 mybatis:
-  mapper-locations: mapper/*.xml
+  config-location: config/mybatis/mybatis-config.xml
+  mapper-locations: config/mybatis/mapper/*.xml

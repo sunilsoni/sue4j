@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="txswx-ehcache">
+    <diskStore path="java.io.tmpdir"/>
+    <!-- DefaultCache setting. -->
+    <!--
+         maxElementsInMemory 为缓存对象的最大数目,
+         eternal 设置是否永远不过期,
+         timeToIdleSeconds 对象处于空闲状态的最多秒数,
+         timeToLiveSeconds 对象处于缓存状态的最多秒数
+    -->
+
+    <defaultCache maxEntriesLocalHeap="10000"
+                  eternal="true"
+                  timeToIdleSeconds="300"
+                  timeToLiveSeconds="600"
+                  overflowToDisk="true"
+                  maxEntriesLocalDisk="100000"/>
+</ehcache>

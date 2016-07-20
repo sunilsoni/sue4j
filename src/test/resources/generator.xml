@@ -25,14 +25,14 @@
 
         <!-- !!!! Model Configurations !!!! -->
         <!-- 更改地方4: 生成的model的 位置-->
-        <javaModelGenerator targetPackage="me.uuus.sue4j.pojo" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <javaModelGenerator targetPackage="me.uuus.sue4j.model" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- !!!! Mapper XML Configurations !!!! -->
         <!--  更改地方5: 生成xml文件的位置-->
-        <sqlMapGenerator targetPackage="mapper" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <sqlMapGenerator targetPackage="config.mybatis.mapper" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
@@ -44,6 +44,8 @@
 
         <!-- !!!! Table Configurations !!!! -->
         <!--   更改地方7:  数据库的表名  删除后面的内容 生成example-->
-        <table tableName="s_user" />
+        <table tableName="user" />
+        <table tableName="permesssion" />
+        <table tableName="role" />
     </context>
 </generatorConfiguration>

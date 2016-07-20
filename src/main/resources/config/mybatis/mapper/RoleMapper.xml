@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="me.uuus.sue4j.dao.SUserMapper" >
-  <resultMap id="BaseResultMap" type="me.uuus.sue4j.pojo.SUser" >
-    <id column="s_id" property="sId" jdbcType="INTEGER" />
-    <result column="s_name" property="sName" jdbcType="VARCHAR" />
-    <result column="s_tel" property="sTel" jdbcType="VARCHAR" />
+<mapper namespace="me.uuus.sue4j.dao.RoleMapper" >
+  <resultMap id="BaseResultMap" type="me.uuus.sue4j.model.Role" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_sign" property="roleSign" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    s_id, s_name, s_tel
+    id, role_name, role_sign, description
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="me.uuus.sue4j.pojo.SUserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="me.uuus.sue4j.model.RoleExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from s_user
+    from role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -81,70 +82,79 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from s_user
-    where s_id = #{sId,jdbcType=INTEGER}
+    from role
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from s_user
-    where s_id = #{sId,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from role
+    where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="me.uuus.sue4j.pojo.SUserExample" >
-    delete from s_user
+  <delete id="deleteByExample" parameterType="me.uuus.sue4j.model.RoleExample" >
+    delete from role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="me.uuus.sue4j.pojo.SUser" >
-    insert into s_user (s_id, s_name, s_tel
-      )
-    values (#{sId,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{sTel,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="me.uuus.sue4j.model.Role" >
+    insert into role (id, role_name, role_sign, 
+      description)
+    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{roleSign,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="me.uuus.sue4j.pojo.SUser" >
-    insert into s_user
+  <insert id="insertSelective" parameterType="me.uuus.sue4j.model.Role" >
+    insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="sId != null" >
-        s_id,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="sName != null" >
-        s_name,
+      <if test="roleName != null" >
+        role_name,
       </if>
-      <if test="sTel != null" >
-        s_tel,
+      <if test="roleSign != null" >
+        role_sign,
+      </if>
+      <if test="description != null" >
+        description,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="sId != null" >
-        #{sId,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
       </if>
-      <if test="sName != null" >
-        #{sName,jdbcType=VARCHAR},
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="sTel != null" >
-        #{sTel,jdbcType=VARCHAR},
+      <if test="roleSign != null" >
+        #{roleSign,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="me.uuus.sue4j.pojo.SUserExample" resultType="java.lang.Integer" >
-    select count(*) from s_user
+  <select id="countByExample" parameterType="me.uuus.sue4j.model.RoleExample" resultType="java.lang.Integer" >
+    select count(*) from role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update s_user
+    update role
     <set >
-      <if test="record.sId != null" >
-        s_id = #{record.sId,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.sName != null" >
-        s_name = #{record.sName,jdbcType=VARCHAR},
+      <if test="record.roleName != null" >
+        role_name = #{record.roleName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sTel != null" >
-        s_tel = #{record.sTel,jdbcType=VARCHAR},
+      <if test="record.roleSign != null" >
+        role_sign = #{record.roleSign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -152,30 +162,42 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update s_user
-    set s_id = #{record.sId,jdbcType=INTEGER},
-      s_name = #{record.sName,jdbcType=VARCHAR},
-      s_tel = #{record.sTel,jdbcType=VARCHAR}
+    update role
+    set id = #{record.id,jdbcType=BIGINT},
+      role_name = #{record.roleName,jdbcType=VARCHAR},
+      role_sign = #{record.roleSign,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="me.uuus.sue4j.pojo.SUser" >
-    update s_user
+  <update id="updateByPrimaryKeySelective" parameterType="me.uuus.sue4j.model.Role" >
+    update role
     <set >
-      <if test="sName != null" >
-        s_name = #{sName,jdbcType=VARCHAR},
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="sTel != null" >
-        s_tel = #{sTel,jdbcType=VARCHAR},
+      <if test="roleSign != null" >
+        role_sign = #{roleSign,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
       </if>
     </set>
-    where s_id = #{sId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="me.uuus.sue4j.pojo.SUser" >
-    update s_user
-    set s_name = #{sName,jdbcType=VARCHAR},
-      s_tel = #{sTel,jdbcType=VARCHAR}
-    where s_id = #{sId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="me.uuus.sue4j.model.Role" >
+    update role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      role_sign = #{roleSign,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectRolesByUserId" resultType="me.uuus.sue4j.model.Role">
+    SELECT r.id, r.role_name, r.role_sign, r.description
+    FROM role r
+    LEFT JOIN user_role ur
+    ON r.id = ur.role_id
+    WHERE ur.user_id = #{id,jdbcType=BIGINT}
+  </select>
 </mapper>

@@ -1,0 +1,14 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+#navbar ul {
+    margin: 8px 0;
+}
+.userInfo, .userInfo a {
+    padding: 15px 20px 0 0;
+    color: #9d9d9d;
+}
+.userInfo a:hover {
+    color: red;
+}
