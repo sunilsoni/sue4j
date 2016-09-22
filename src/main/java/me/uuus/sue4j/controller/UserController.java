@@ -68,9 +68,9 @@ public class UserController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
-        /**
-         * 部分用记住密码的用户登录一些@RequiresAuthentication页面时
-         * @see PageController (参考前面类的two()方法已经它的说明)
+        /*
+          部分用记住密码的用户登录一些@RequiresAuthentication页面时
+          @see PageController (参考前面类的two()方法已经它的说明)
          * 抛出org.apache.shiro.authz.UnauthenticatedException,异常
          * @see me.uuus.sue4j.config.ExceptionConfig ,
          * 在上面的类中我们捕获了这个异常,并跳转到注销页面,然后在跳转到首页

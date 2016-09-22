@@ -1,12 +1,18 @@
 package me.uuus.sue4j.model;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class User {
+
     private Long id;
 
+    @NotNull
     private String username;
 
+    @Length(min = 64, max = 64)
     private String password;
 
     private String state;
