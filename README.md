@@ -3,6 +3,7 @@
 
 **&nbsp;&nbsp;Sue4j -基于Spring Boot的高性能JavaWeb项目快速构建**
 
+<br>
 Quick Start
 -----------
 
@@ -48,6 +49,7 @@ Quick Start
 <br>
 
  - **使用帮助**
+ 
  1. 使用sue(或vip或normal),密码123456即可登录
  2. 在sue4j/src/test/resources下有sql脚本和mybatis-generator的配置文件
  3. 代码有很全很详细的注释，大家应该都能看懂
@@ -55,7 +57,7 @@ Quick Start
 
 <br>
 ###关于我
->* **author：Mr.Su**
+> * **author：Mr.Su**
 * **email：swb0917@gmail.com**
 * **blog：http://blog.uuus.me**
 
@@ -66,7 +68,7 @@ Quick Start
 
 <br>
 ### License
-> 本项目（sue4j）开源协议Apache 2.0 license.
+>  本项目（sue4j）开源协议Apache 2.0 license.
 
 <br>
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`If you have a better suggestion,Please share out,Let's do better.`
