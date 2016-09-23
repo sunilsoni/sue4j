@@ -7,12 +7,12 @@
 Quick Start
 -----------
 
-> 1、 git clone [git@github.com:sue0917/sue4j.git](https://github.com/sue0917/sue4j)
-2、 在MySQL中导入 sue4j/src/test/resources/sue4j.sql 脚本
-3、 更新 quick4j/src/main/resources/application.yml 中spring.datasource.druid数据库配置信息:
-4、 cd sue4j
---- 下面二选一 ---
-5、 mvn spring-boot:run 直接运行
+> 1、 git clone [git@github.com:sue0917/sue4j.git](https://github.com/sue0917/sue4j)<br>
+2、 在MySQL中导入 sue4j/src/test/resources/sue4j.sql 脚本<br>
+3、 更新 quick4j/src/main/resources/application.yml 中spring.datasource.druid数据库配置信息<br>
+4、 cd sue4j<br>
+--- 下面二选一 ---<br>
+5、 mvn spring-boot:run 直接运行<br>
 5、 mvn package，然后 java -jar target/sue4j-1.1-SNAPSHOT.jar 运行(可使用nohup等后台,自行google)
 
 
