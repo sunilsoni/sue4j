@@ -18,9 +18,9 @@ import javax.servlet.ServletException;
  * @author Mr.Su[swb0917@gmail.com]
  */
 @Configuration
-@Order(2)
 @ImportResource("classpath:net/bull/javamelody/monitoring-spring.xml")
 public class JavaMelodyConfiguration implements ServletContextInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         servletContext.addListener(new SessionListener());

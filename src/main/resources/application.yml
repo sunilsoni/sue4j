@@ -1,9 +1,20 @@
 spring:
   datasource:
-    username: root
-    password: 123
-    url: jdbc:mysql://192.168.1.111:3306/sue4j
-    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      username: root
+      password: 123
+      url: jdbc:mysql://192.168.1.111:3306/sue4j
+      driver-class-name: com.mysql.jdbc.Driver
+      max-active: 20
+      initial-size: 1
+      min-idle: 3
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x' FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
   cache:
     ehcache:
       config: config/ehcache/ehcache.xml
